@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+}
+
+.heading{
+  width: 80%;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.mainBodyForTODOList{
+  width: 80%;
+  margin: 20px auto;
+}
+
+.todoListMainDiv{
+  padding: 10px;
+}
+
+.descriptionMainDiv{
+  padding: 10px;
+}

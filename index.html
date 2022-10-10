@@ -9,26 +9,28 @@
   </header>
   <body>
     <head>
-      <div>
-        <img alt="Logo für die TODO Liste">
-        <div>Home</div>
-        <div>About</div>
-        <div>
-          <input type="text" placeholder="Search.." class="row searchbar">
+      <div class="row heading">
+        <img class="col" alt="Logo für die TODO Liste">
+        <div class="col">Home</div>
+        <div class="col">About</div>
+        <div class="col">
+          <input type="text" placeholder="Suche deine Aufgabe..." class="row searchbar">
         </div>
-        <button>Hinzufügen</button>
+        <button class="col">Hinzufügen</button>
       </div>
     </head>
     <main>
-      <div>
-        TODO-Liste
-      </div>
-      <div>
-        Detailierte Beschreibung
+      <div class="row mainBodyForTODOList">
+        <div class="col-5 todoListMainDiv">
+          TODO-Liste
+        </div>
+        <div class="col-7 descriptionMainDiv">
+          Detailierte Beschreibung
+        </div>
       </div>
     </main>
     <footer>
-      
+
     </footer>
 
     <script src="./src/main.js" async defer></script>
