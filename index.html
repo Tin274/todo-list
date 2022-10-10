@@ -17,20 +17,25 @@
       <div class="row heading">
         <img class="col" alt="Logo für die TODO Liste">
         <div class="col">Home</div>
+        <input type="text" id="textInputTodoListEntry" name="textInputTodoListEntry"  placeholder="Todo-Liste erstellen">
         <div class="col">About</div>
+        <input type="text" id="textInputTodoListDescription" name="textInputTodoListDescription"  placeholder="Todo-Listen Beschreibung erstellen">
         <div class="col">
           <input type="text" placeholder="Suche deine Aufgabe..." class="row searchbar">
         </div>
-        <button class="col">Hinzufügen</button>
+        <button class="col" id="buttonTodoList">Hinzufügen</button>
       </div>
     </head>
     <main>
       <div class="row mainBodyForTODOList">
-        <div class="col-5 todoListMainDiv">
+        <div class="col-5 todoListMainDiv" id="todoList">
           TODO-Liste
         </div>
-        <div class="col-7 descriptionMainDiv">
+        <div class="col-6 descriptionMainDiv" id="descriptionList">
           Detailierte Beschreibung
+        </div>
+        <div class="col-1 deleteAndEditButtons" id="deleteAndEditButtons">
+          Buttons
         </div>
       </div>
     </main>
