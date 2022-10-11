@@ -1,5 +1,5 @@
 let myTemporaryTodoListEntryAndDescription = {textInputTodoListEntry: '', textInputTodoListDescription: ''};
-let myTemporaryEditTodoListEntryAndDescription = {textInputTodoListEntry: '', textInputTodoListDescription: ''};
+let myTemporaryEditTodoListEntryAndDescription = {editTodoEntryElement: '', editTodoDescriptionElement: ''};
 
 //{key: 'Todo-Liste erstellen', value: 'Es muss eine TODO-Liste erstellt werden. Also einfach einen Eintrage in die vorgegebenen Felder eintragen und durch den Knopfdruck zur Liste hinzufügen.'}
 
@@ -15,7 +15,7 @@ function fillMyObjectOnChange(event){
 
 function fillMyEditObjectOnChange(event){
   myTemporaryEditTodoListEntryAndDescription = {
-    ...myTemporaryEditTodoListEntryAndDescription, [event.target.name]: event.target.value
+    ...myTemporaryEditTodoListEntryAndDescription, [event.target.className]: event.target.value
   };
 }
 
@@ -35,8 +35,8 @@ function createNewElement(htmlObject, idToUse, className, innerHtmlText, listEle
     newTodoListElement.addEventListener('click', editButtonClickListener);
   }else if(className === 'editTodoEntryElement' || className === 'editTodoDescriptionElement'){
     newTodoListElement.addEventListener('change', fillMyEditObjectOnChange);
-  }else if(className === 'acceptEditButton'){
-    newTodoListElement.addEventListener('click', editTodoEntryAndDescription);
+  //}else if(className === 'acceptEditButton'){
+    //newTodoListElement.addEventListener('click', editTodoEntryAndDescription);
   }else if(className === 'deleteButton'){
     //newTodoListElement.addEventListener('click', deleteButtonClickListener);
   }
@@ -67,34 +67,49 @@ function createTodoEntryAndDescription(){
   }
 }
 
-
-//TODO make button click edit whole TODO-List
 function editButtonClickListener(){
   const idToUseForEditing = this.id.replace('editButton', '');
 
   createNewElement('input', `editTodoEntryElement${idToUseForEditing}`, 'editTodoEntryElement', '', `todoEntry${idToUseForEditing}`, 'text', 'Todo Eintrag ändern');
 
   createNewElement('input', `editTodoDescriptionElement${idToUseForEditing}`, 'editTodoDescriptionElement', '', `todoDescription${idToUseForEditing}`, 'text', 'Todo Beschreibung ändern');
-  //if
-  createNewElement('button', `acceptEditButton${idToUseForEditing}`, 'acceptEditButton', '<img alt="Änderung zustimmen">', this.id);
+  
+  //createNewElement('button', `acceptEditButton${idToUseForEditing}`, 'acceptEditButton', '<img alt="Änderung zustimmen">', this.id);
+
+  const editAcceptButton =  document.getElementById(this.id);
+  editAcceptButton.innerHTML = '<img alt="Änderung akzeptieren Taste">';
+  editAcceptButton.className = 'acceptEditButton';
+  editAcceptButton.id = this.id;
+  editAcceptButton.removeEventListener('click', editButtonClickListener);
+  editAcceptButton.addEventListener('click', acceptEditTodoEntryAndDescription);
 }
 
-function editTodoEntryAndDescription(){
-  const idToUseForAcceptingEdit = this.id.replace('acceptEditButton', '');
-
-  const acceptEditButton = document.getElementById(this.id);
+function acceptEditTodoEntryAndDescription(){
+  const idToUseForAcceptingEdit = this.id.replace('editButton', '');
   const editTodoEntryElement = document.getElementById(`editTodoEntryElement${idToUseForAcceptingEdit}`);
   const editTodoDescriptionElement = document.getElementById(`editTodoDescriptionElement${idToUseForAcceptingEdit}`);
-  document.getElementById(this.id).parentNode.removeChild(acceptEditButton);
-  document.getElementById(`editTodoEntryElement${idToUseForAcceptingEdit}`).parentNode.removeChild(editTodoEntryElement);
-  document.getElementById(`editTodoDescriptionElement${idToUseForAcceptingEdit}`).parentNode.removeChild(editTodoDescriptionElement);
-
-  if(myTemporaryEditTodoListEntryAndDescription.textInputTodoListEntry != ''){
-    document.getElementById(`todoEntry${idToUseForAcceptingEdit}`).innerHTML = myTemporaryEditTodoListEntryAndDescription.textInputTodoListEntry;
-    if(myTemporaryEditTodoListEntryAndDescription.textInputTodoListDescription != ''){
-      document.getElementById(`todoDescription${idToUseForAcceptingEdit}`).innerHTML = myTemporaryEditTodoListEntryAndDescription.textInputTodoListDescription;
+  
+  if(myTemporaryEditTodoListEntryAndDescription.editTodoEntryElement != ''){
+    document.getElementById(`todoEntry${idToUseForAcceptingEdit}`).innerHTML = myTemporaryEditTodoListEntryAndDescription.editTodoEntryElement;
+    if(myTemporaryEditTodoListEntryAndDescription.editTodoDescriptionElement != ''){
+      document.getElementById(`todoDescription${idToUseForAcceptingEdit}`).innerHTML = myTemporaryEditTodoListEntryAndDescription.editTodoDescriptionElement;
+    }else{
+      editTodoDescriptionElement.parentNode.removeChild(editTodoDescriptionElement);
     }
+  }else{
+    editTodoEntryElement.parentNode.removeChild(editTodoEntryElement);
+    editTodoDescriptionElement.parentNode.removeChild(editTodoDescriptionElement);
   }
+  
+  
+  
+
+  const editButton = document.getElementById(this.id);
+  editButton.innerHTML = '<img alt="Ändern Taste">';
+  editButton.className = 'editButton';
+  editButton.id = this.id;
+  editButton.removeEventListener('click', acceptEditTodoEntryAndDescription);
+  editButton.addEventListener('click', editButtonClickListener);
 }
 
 textInputTodoListEntry.addEventListener('change', fillMyObjectOnChange);
