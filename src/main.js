@@ -35,10 +35,8 @@ function createNewElement(htmlObject, idToUse, className, innerHtmlText, listEle
     newTodoListElement.addEventListener('click', editButtonClickListener);
   }else if(className === 'editTodoEntryElement' || className === 'editTodoDescriptionElement'){
     newTodoListElement.addEventListener('change', fillMyEditObjectOnChange);
-  //}else if(className === 'acceptEditButton'){
-    //newTodoListElement.addEventListener('click', editTodoEntryAndDescription);
   }else if(className === 'deleteButton'){
-    //newTodoListElement.addEventListener('click', deleteButtonClickListener);
+    newTodoListElement.addEventListener('click', deleteButtonClickListener);
   }
 }
 
@@ -74,8 +72,7 @@ function editButtonClickListener(){
 
   createNewElement('input', `editTodoDescriptionElement${idToUseForEditing}`, 'editTodoDescriptionElement', '', `todoDescription${idToUseForEditing}`, 'text', 'Todo Beschreibung ändern');
   
-  //createNewElement('button', `acceptEditButton${idToUseForEditing}`, 'acceptEditButton', '<img alt="Änderung zustimmen">', this.id);
-
+  //change the editButton to acceptEditButton
   const editAcceptButton =  document.getElementById(this.id);
   editAcceptButton.innerHTML = '<img alt="Änderung akzeptieren Taste">';
   editAcceptButton.className = 'acceptEditButton';
@@ -101,15 +98,27 @@ function acceptEditTodoEntryAndDescription(){
     editTodoDescriptionElement.parentNode.removeChild(editTodoDescriptionElement);
   }
   
-  
-  
-
+  //change the acceptEditButton to editButton
   const editButton = document.getElementById(this.id);
   editButton.innerHTML = '<img alt="Ändern Taste">';
   editButton.className = 'editButton';
   editButton.id = this.id;
   editButton.removeEventListener('click', acceptEditTodoEntryAndDescription);
   editButton.addEventListener('click', editButtonClickListener);
+}
+
+function deleteButtonClickListener(){
+  const idToUseForDeleting = this.id.replace('deleteButton', '');
+  const todoEntry = document.getElementById(`todoEntry${idToUseForDeleting}`);
+  const todoDescription = document.getElementById(`todoDescription${idToUseForDeleting}`);
+  const divForButtons = document.getElementById(`divForButtons${idToUseForDeleting}`);
+  const editButton = document.getElementById(`editButton${idToUseForDeleting}`);
+  const deleteButton = this.id;
+  todoEntry.parentNode.removeChild(todoEntry);
+  todoDescription.parentNode.removeChild(todoDescription);
+  divForButtons.parentNode.removeChild(divForButtons);
+  editButton.parentNode.removeChild(editButton);
+  deleteButton.parentNode.removeChild(deleteButton);
 }
 
 textInputTodoListEntry.addEventListener('change', fillMyObjectOnChange);
