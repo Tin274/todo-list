@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <header>
+  <head>
     <meta charset="UTF-8">
     <meta name="vieport" content="width=device-width, initial-sclae=1.0">
     <title>TODO-List</title>
@@ -11,22 +11,81 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/styles.css">
-  </header>
+  </head>
+  
   <body>
-    <head>
-      <div class="row heading">
-        <img class="col" alt="Logo für die TODO Liste">
-        <div class="col">Home</div>
-        <input type="text" id="textInputTodoListEntry" name="textInputTodoListEntry"  placeholder="Todo-Liste erstellen">
-        <div class="col">About</div>
-        <input type="text" id="textInputTodoListDescription" name="textInputTodoListDescription"  placeholder="Todo-Listen Beschreibung erstellen">
+   
+    <header  class="heading p-2">
+      <img src="./logo/Todo1.png" class="logo" alt="Logo für die TODO Liste">
+        <nav>
+          <ul>
+            <li><a>Home</a></li>
+            <li><a>About</a></li>
+          </ul>
+        </nav> 
+    </header>
+   
+    <main class="container">
+
+      <div class="row mb-4">
         <div class="col">
-          <input type="text" placeholder="Suche deine Aufgabe..." class="row searchbar">
+          <input type="text" placeholder="Suche deine Aufgabe..." class="searchbar input w-75">
         </div>
-        <button class="col" id="buttonTodoList">Hinzufügen</button>
       </div>
-    </head>
-    <main>
+
+      <div class="row">
+        <div class="col">
+          <input 
+            type="text" 
+            id="textInputTodoListEntry" 
+            name="textInputTodoListEntry"  
+            placeholder="Todo-Liste erstellen" 
+            class="input mb-2 w-75"
+          />
+          <input 
+            type="text" 
+            id="textInputTodoListDescription" 
+            name="textInputTodoListDescription"  
+            placeholder="Todo-Listen Beschreibung erstellen"
+            class="input w-75"
+          />
+        </div>
+        <div class="col">
+          <button class="col add-button" id="buttonTodoList">Hinzufügen</button>
+        </div>
+      </div>
+
+      <div class="todos-container mt-5">
+        <div class="todos-list-container">
+          <div class="w-100">
+            <div class="todo-header">
+              Aufgabenliste
+            </div>
+            <ul class="todo-list">
+              <li class="todo-item">Test Aufgabe</li>
+              <li class="todo-item">Test Aufgabe</li>
+              <li class="todo-item">Test Aufgabe</li>
+              <li class="todo-item">Test Aufgabe</li>
+              <li class="todo-item">Test Aufgabe</li>
+              <li class="todo-item">Test Aufgabe</li>
+              <li class="todo-item">Test Aufgabe</li>
+            </ul>
+          </div>
+        </div>
+        <div class="todo-description-container">
+          <div class="todo-description-head">
+            11.10.2022
+          </div>
+          <h3 class="todo-description-title">
+            Test Aufgabe
+          </h3>
+          <div class="todo-description">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque neque repudiandae distinctio explicabo, quas voluptate, ratione nam nisi molestiae enim praesentium obcaecati inventore velit et delectus dolores dolorem perferendis atque.
+          </div>
+        </div>
+      </div>
+
+
       <div class="row mainBodyForTODOList">
         <div class="col-5 todoListMainDiv" id="todoList">
           TODO-Liste
@@ -39,9 +98,10 @@
         </div>
       </div>
     </main>
+    
     <footer>
       <div class="row footerWithLOGO">
-        <img class="col" alt="Logo für die TODO Liste">
+        <img class="col logo-footer" src="./logo/Todo1.png" alt="Logo für die TODO Liste">
         <div class="col">
           Unternehmen
         </div>
