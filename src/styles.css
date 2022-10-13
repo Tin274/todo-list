@@ -8,38 +8,6 @@ gelb        #ffe66d
 */
 
 
-/* für Todoliste */
-.todoEntry{
-
-}
-
-/* Beschreibung */
-.todoDescription{
-
-}
-
-/* alle Button */
-.divForButtons{
-
-}
-
-/* hinzufügen */
-.editButton{
-
-}
-
-/* löschen */
-.deleteButton{
-
-}
-
-/* erledigt */
-.acceptEditButton{
-  
-}
-
-
-
 body {
   margin: 0;
   font-family: 'Exo', sans-serif;
@@ -85,14 +53,21 @@ li {
 .icon-trash {
   color: #ff6b6b;
   width: 24px;
+  height: auto;
 }
 
 .icon-check {
-  color: #1a535c;
+  color: #ff6b6b;
   width: 24px;
+  height: auto;
 }
 
-
+.todo-list button {
+  background-color: #ff6b6b;
+  color: #f7fff7;
+  border: solid 1px #ff6b6b;
+  border-radius: 5px;
+}
 
 .input {
   background-color: #f7fff7;
@@ -108,16 +83,22 @@ li {
 
 }
 
+.new-todo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .add-button {
-  width: 120px;
-  height: 40px;
+  height: 42px;
+  padding: 0 36px;
   background-color: #ff6b6b;
   color: #f7fff7;
   border: solid 1px #ff6b6b;
   border-radius: 5px;
-  margin: 10px 0 0 0;
   font-size: 12px;
   font-weight: bold;
+  margin-left: 12px;
 }
 
 .todos-container {
@@ -141,12 +122,6 @@ li {
   margin-bottom: 24px;
 }
 
-@media (min-width: 768px) { 
-  .todos-list-container {
-    width: 50%;
-    margin-bottom: 0;
-  }
- } 
 
 .todo-list {
   display: flex;
@@ -155,7 +130,7 @@ li {
   padding: 0;
 }
 
-.todo-list span {
+.todo-item span {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -172,12 +147,12 @@ li {
 }
 
 .todo-item {
+  display: none;
   background: #F7FFF7;
   color: #D62828;
   padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -191,6 +166,10 @@ li {
 
 .todo-item:nth-child(even) {
   background: #4ECDC4;
+}
+
+.todo-entry {
+  width: 75%;
 }
 
 .todo-description-container {
