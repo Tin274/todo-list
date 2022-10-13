@@ -1,8 +1,6 @@
 let myTemporaryTodoListEntryAndDescription = {textInputTodoListEntry: '', textInputTodoListDescription: ''};
 let myTemporaryEditTodoListEntryAndDescription = {editTodoEntryElement: '', editTodoDescriptionElement: ''};
 
-//{key: 'Todo-Liste erstellen', value: 'Es muss eine TODO-Liste erstellt werden. Also einfach einen Eintrage in die vorgegebenen Felder eintragen und durch den Knopfdruck zur Liste hinzufügen.'}
-
 const textInputTodoListEntry = document.getElementById('textInputTodoListEntry');
 const textInputTodoListDescription = document.getElementById('textInputTodoListDescription');
 const buttonTodoList = document.getElementById('buttonTodoList');
@@ -30,7 +28,7 @@ function createNewElement(htmlObject, idToUse, className, innerHtmlText, listEle
   }
 
   document.getElementById(listElementForAppending).appendChild(newTodoListElement);
-
+  console.log(newTodoListElement);
   if(className === 'editButton'){
     newTodoListElement.addEventListener('click', editButtonClickListener);
   }else if(className === 'editTodoEntryElement' || className === 'editTodoDescriptionElement'){
