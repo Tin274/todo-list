@@ -292,37 +292,3 @@ footer ul li:not(:last-of-type) {
   color:  #1a535c;
   margin: 10px 0;
 }
-
-/* @media (min-width: 768px) { 
-  .footer-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
- } */
-
-/* 
-@media (min-width: 768px) { 
-  .footer-navbar {
-    margin: 0;
-  }
- }
-
-ul {
-  list-style: none;
-}
-
-.footer-navbar a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.footer-navbar a:hover {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-
-
-} */
