@@ -7,7 +7,40 @@ gelb        #ffe66d
 
 */
 
-*{
+
+/* für Todoliste */
+.todoEntry{
+
+}
+
+/* Beschreibung */
+.todoDescription{
+
+}
+
+/* alle Button */
+.divForButtons{
+
+}
+
+/* hinzufügen */
+.editButton{
+
+}
+
+/* löschen */
+.deleteButton{
+
+}
+
+/* erledigt */
+.acceptEditButton{
+  
+}
+
+
+
+body {
   margin: 0;
   font-family: 'Exo', sans-serif;
 }
@@ -49,6 +82,18 @@ li {
   font-size: 18px;
 }
 
+.icon-trash {
+  color: #ff6b6b;
+  width: 24px;
+}
+
+.icon-check {
+  color: #1a535c;
+  width: 24px;
+}
+
+
+
 .input {
   background-color: #f7fff7;
   color: #1a535c;
@@ -75,28 +120,47 @@ li {
   font-weight: bold;
 }
 
-.mainBodyForTODOList{
-  width: 80%;
-  margin: 20px auto;
-}
-
 .todos-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
+  margin-bottom: 72px;
 }
 
+@media (min-width: 768px) { 
+  .todos-container {
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+ } 
+
 .todos-list-container {
-  width: 40%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 }
+
+@media (min-width: 768px) { 
+  .todos-list-container {
+    width: 50%;
+    margin-bottom: 0;
+  }
+ } 
 
 .todo-list {
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
+}
+
+.todo-list span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
+  width: 100%;
 }
 
 .todo-header {
@@ -110,9 +174,19 @@ li {
 .todo-item {
   background: #F7FFF7;
   color: #D62828;
-  padding: 12px 24px;
+  padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item span {
+  display: block;
+  text-align: center;
+  padding: 0 12px;
 }
 
 .todo-item:nth-child(even) {
@@ -121,11 +195,16 @@ li {
 
 .todo-description-container {
   width: 100%;
-  padding-left: 24px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
+
+@media (min-width: 768px) { 
+  .todo-description-container {
+    padding-left: 24px;
+  }
+ } 
 
 .todo-description-head {
   background: #CAF0ED;
@@ -163,38 +242,67 @@ li {
 
 footer {
   background-color: #4ecdc4;
-  height: 100px;
+  margin: 20px auto 0 auto;
 }
 
-.footerWithLOGO{
-  width: 80%;
-  margin: 20px auto;
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  padding: 24px 0 0 0;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo-footer {
-  width: 80x;
   height: 80px;
-  margin: 0 0 0 10%;
-  object-fit: cover;
 }
-/* 
-@media (min-width: 768px) { 
+
+
+.footer-navbar {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  color: #fff;
+  padding: 0;
+}
+
+footer ul {
+  display: flex;
+  flex-direction: row;
+}
+
+footer ul li:not(:last-of-type) {
+  margin-right: 24px;
+}
+
+.line {
+  border-bottom: solid 1.5px #1a535c;
+  height: 20px;
+  display: flex;
+  margin: auto;
+}
+
+.copyright {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0 0 24px 0;
+}
+
+.copyright p {
+  color:  #1a535c;
+  margin: 10px 0;
+}
+
+/* @media (min-width: 768px) { 
   .footer-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
   }
- }
+ } */
 
-.footer-navbar {
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-  margin: 0 0 48px 0;
-  padding: 0;
-}
-
+/* 
 @media (min-width: 768px) { 
   .footer-navbar {
     margin: 0;
@@ -216,9 +324,5 @@ ul {
 }
 
 
-#copyright p {
-  font-size: 1em;
-  font-weight: 400;
-  color: #fff;
-  margin: 0;
+
 } */
