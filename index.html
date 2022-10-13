@@ -42,17 +42,16 @@
             placeholder="Todo-Liste erstellen" 
             class="input mb-2 w-75"
           />
-          <input 
+          <!--<input 
             type="text" 
             id="textInputTodoListDescription" 
             name="textInputTodoListDescription"  
             placeholder="Todo-Listen Beschreibung erstellen"
             class="input w-75"
-          />
+          />-->
         </div>
         <div class="col">
           <button class="col add-button" id="buttonTodoList" >Hinzufügen</button>
-          <!-- .divForButtons .editButton-->
         </div>
       </div>
 
@@ -62,6 +61,11 @@
             <div class="todo-header">
               Aufgabenliste
             </div>
+            <div class="todo-list-container-for-dynamically-created-entrys" id="todoList">
+
+            </div>
+            
+            <!--
             <ul class="todo-list">
               <li class="todo-item">
                 <svg class="icon-check .divForButtons .acceptEditButton" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg> 
@@ -93,31 +97,20 @@
                 <span>Test Aufgabe</span>
                 <svg class="icon-trash .divForButtons .deleteButton" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg> 
               </li>
-            </ul>
+            </ul>-->
           </div>
         </div>
-        <div class="todo-description-container">
+        <!--<div class="todo-description-container">
           <div class="todo-description-head">
             11.10.2022
           </div>
           <h3 class="todo-description-title">
             Test Aufgabe
           </h3>
-          <div class="todo-description">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque neque repudiandae distinctio explicabo, quas voluptate, ratione nam nisi molestiae enim praesentium obcaecati inventore velit et delectus dolores dolorem perferendis atque.
+          <div class="todo-description"  id="descriptionList">
+            
           </div>
-        </div>
-      </div>
-      <div class="row mainBodyForTODOList">
-        <div class="col-5 todoListMainDiv" id="todoList">
-          TODO-Liste
-        </div>
-        <div class="col-6 descriptionMainDiv" id="descriptionList">
-          Detailierte Beschreibung
-        </div>
-        <div class="col-1 deleteAndEditButtons" id="deleteAndEditButtons">
-          Buttons
-        </div>
+        </div>-->
       </div>
     </main>
     
