@@ -18,9 +18,36 @@ const createTodoNode = (todo) => {
   todoListElement.appendChild(newTodoNode);
 }
 
+const completeTodo = (event) => {
+  const todoID = event.target.parentElement.getAttribute('id');
+  const todosWithoutFilteredTodo = todoAppState.todos.filter((todo) => todo.id !== +todoID);
+  const filteredTodo = todoAppState.todos.filter((todo) => todo.id === +todoID);
+ 
+  if(filteredTodo.done === false) {
+    filteredTodo.done = true;
+    event.target.style.textDecoration = 'line-through';
+  } else {
+    filteredTodo.done = false;
+    event.target.style.textDecoration = 'none';
+  }
+
+  console.log('spred', ...todosWithoutFilteredTodo)
+
+  todoAppState.todos = [
+    ...todosWithoutFilteredTodo,
+    filteredTodo,
+  ];
+
+  console.log(todoAppState.todos);
+} 
+
+
 const deleteTodo = (e) => {
   const todoID = e.target.parentElement.parentNode.getAttribute('id');
-  const filteredTodos = todoAppState.todos.filter((todo) => )
+  const filteredTodos = todoAppState.todos.filter((todo) => todo.id !== todoID);
+  
+  todoAppState.todos = filteredTodos;
+  document.getElementById(todoID).remove();
 };
 
 
